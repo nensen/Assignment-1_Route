@@ -1,0 +1,49 @@
+﻿@model RouteViewModel
+
+@{
+    ViewData["Title"] = "Route detail";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+
+<div class="col-xs-12">
+
+    <h4>Address</h4>
+    <div class="row">
+        <span>Initial: <b>@Model.InitialAddress</b></span>
+    </div>
+    <div class="row">
+        <span>Coordinates: <b>@Model.InitialAddressCoords</b></span>
+    </div>
+    <br />
+    <div class="row">
+        <span>Destination: <b>@Model.DestinationAddress</b></span>
+    </div>
+    <div class="row">
+        <span>Coordinates: <b>@Model.DestinationAddressCoords</b></span>
+    </div>
+
+    <br />
+    <h4>Route information</h4>
+    <div class="row">
+        <span><label asp-for="RouteFuelConsumption"></label>: <b>@Model.RouteFuelConsumption l</b></span>
+    </div>
+    <div class="row">
+        <span><label asp-for="TotalDistance"></label>: <b>@Model.TotalDistance</b></span>
+    </div>
+    <div class="row">
+        <span><label asp-for="TotalDuration"></label>: <b>@Model.TotalDuration</b></span>
+    </div>
+    <br />
+
+    <div class="row">
+        <a asp-action="New">
+            <button type="submit" class="btn btn-primary">New search</button>
+        </a>
+        <a asp-action="New" asp-route-routeId="@Model.Id">
+            <button type="submit" class="btn btn-secondary" style="margin-left:15px;">Edit route</button>
+        </a>
+    </div>
+</div>
+

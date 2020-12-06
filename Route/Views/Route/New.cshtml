@@ -1,0 +1,30 @@
+﻿@model RouteViewModel
+
+@{
+    ViewData["Title"] = "Find new route";
+}
+
+<h1>@ViewData["Title"]</h1> <br />
+<div>
+    <form asp-controller="Route" asp-action="NewRoute" method="post">
+        <div class="form-group">
+            <label asp-for="InitialAddress"></label>
+            <input class="form-control" asp-for="InitialAddress" />
+            <span asp-validation-for="InitialAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DestinationAddress"></label>
+            <input class="form-control" asp-for="DestinationAddress" />
+            <span asp-validation-for="DestinationAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FuelConsumptionPer100"></label>
+            <input class="form-control" type="number" step="any" asp-for="FuelConsumptionPer100" />
+            <span asp-validation-for="FuelConsumptionPer100" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <span class="text-danger">@ViewBag.ErrorMessage</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Get Route Information</button>
+    </form>
+</div>

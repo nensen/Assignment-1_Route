@@ -1,0 +1,36 @@
+﻿@model List<RouteViewModel>
+
+@{
+    ViewData["Title"] = "Route history report";
+}
+
+<h1>@ViewData["Title"]</h1>
+<br />
+
+<table id="routeHistoryTable">
+    <thead>
+        <tr>
+            <td><b>Initial address</b></td>
+            <td><b>Destination address</b></td>
+            <td><b>Distance</b></td>
+            <td><b>Time</b></td>
+            <td style="border-right: none;"><b>Consumption</b></td>
+            <td style="border-right: none;"></td>
+        </tr>
+    </thead>
+    @foreach (var route in Model)
+    {
+        <tr>
+            <td>@route.InitialAddress</td>
+            <td>@route.DestinationAddress</td>
+            <td>@route.TotalDistance</td>
+            <td>@route.TotalDuration</td>
+            <td style="border-right: none;">@route.RouteFuelConsumption l</td>
+            <td style="border-right: none;">
+                <a asp-controller="Route" asp-action="Detail" asp-route-routeId="@route.Id">
+                    <button type="submit" class="btn btn-primary">Detail</button>
+                </a>
+            </td>
+        </tr>
+    }
+</table>
